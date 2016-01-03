@@ -1,0 +1,15 @@
+default: &default
+  adapter: sqlite
+  username: feeder
+
+development:
+  <<: *default
+  database: data/feeder_dev.db
+
+staging:
+  <<: *default
+  database: data/feeder_stage.db
+
+production:
+  <<: *default
+  database: data/feeder_prod.db

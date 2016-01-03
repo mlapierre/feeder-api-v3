@@ -1,0 +1,12 @@
+source 'https://rubygems.org'
+
+gem 'feedjira'
+gem 'nokogiri'
+gem 'clockwork'
+gem 'log4r'
+gem 'mechanize'
+gem 'resque'
+gem 'grape'
+gem 'grape-rails-routes'
+gem 'sqlite3'
+gem 'sequel'
