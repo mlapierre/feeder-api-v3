@@ -1,2 +1,7 @@
+require_relative 'lib/feeder'
 
-fetch_feed(link)
+#feedlist = Feeder::FeedList.new
+feeder = Feeder::Feeder.new
+feed = feeder.fetch_feed(Feeder::Feedlist.feeds[1])
+puts feed.title
+puts feed.save

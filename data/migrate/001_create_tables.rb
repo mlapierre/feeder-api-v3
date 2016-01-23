@@ -9,11 +9,11 @@ Sequel.migration do
       String :feed_url, :null=>false
       String :source_url, :null=>false
       DateTime :created, :null=>false
-      DateTime :last_updated
+      DateTime :last_modified
       DateTime :last_fetched
     end
 
-    create_table(:entries) do
+    create_table(:articles) do
       primary_key :id
       String :title, :null=>false
       String :url, :null=>false
