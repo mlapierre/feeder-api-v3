@@ -4,7 +4,7 @@ require 'simplecov'
 # end
 
 require 'pry'
-require 'cgu_remitcentral_automation'
+require 'feeder'
 
 project_root = Pathname.new(File.expand_path(File.join(File.basename(__FILE__), %w(..))))
 #Dir[project_root.join("features/support/pages/*.rb")].each {|f| require f}

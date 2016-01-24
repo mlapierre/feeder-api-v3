@@ -10,4 +10,9 @@ gem 'grape'
 gem 'grape-rails-routes'
 gem 'sqlite3'
 gem 'sequel'
-gem 'rspec'
+
+group :test, :development do
+  gem 'rspec'
+  gem 'simplecov'
+  gem 'pry'
+end
