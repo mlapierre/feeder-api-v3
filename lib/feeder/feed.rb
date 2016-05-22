@@ -1,14 +1,19 @@
-require 'sequel'
-
 module Feeder
   class Feed
-    attr_accessor :id, :title, :subtitle, :icon, :description, :feed_url, :source_url, :articles, :last_modified, :last_fetched
+    include DataMapper::Resource
 
-    def initialize
-    end
+    property :id, Serial
+    property :title, String
+    property :subtitle, String
+    property :icon, String
+    property :description, String
+    property :feed_url, String
+    property :source_url, String
+    property :created_at, DateTime
+    property :last_modified_at, DateTime
+    property :last_fetched_at, DateTime
 
-    def save
-    end
+    has n, :articles
 
   end
 end

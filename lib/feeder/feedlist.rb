@@ -3,6 +3,7 @@ module Feeder
     def self.feeds
        ["https://what.cd/feeds.php?feed=feed_news&user=181772&auth=f6bce4f81869587c94a738b666746458&passkey=550h5cuy46n856e06pfn1f0bxxoqff8h&authkey=e12cfccbf7fb298409f771bdb57b1d45",
         "http://www.anandtech.com/rss/",
+        "http://www.nextplatform.com/feed/",
         "http://feeds.gawker.com/lifehacker/full",
         "http://feeds.lifehacker.com.au/LifehackerAustralia",
         "http://www.engadget.com/rss.xml",

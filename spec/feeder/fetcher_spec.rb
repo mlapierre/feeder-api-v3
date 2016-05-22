@@ -4,7 +4,6 @@ describe Fetcher do
 
   it 'fetches and parses a feed' do
     fetcher = Feeder::Fetcher.new
-
     feed_source = double
     feed_returned = {
       :title => 'test title',

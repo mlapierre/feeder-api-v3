@@ -1,19 +1,30 @@
-require 'sequel'
-
 module Feeder
-  class Feed
-    attr_accessor :id, :title, :url, :author, :content, :summary, :image, :created, :last_modified, :published
+  class Article
+    include DataMapper::Resource
 
-    def initialize(adapter)
-      @db = adapter
-    end
+    property :id, Serial
+    property :title, String
+    property :url, String
+    property :author, String
+    property :content, Text
+    property :summary, Text
+    property :image, String
+    property :created_at, DateTime
+    property :last_modified_at, DateTime
+    property :published_at, DateTime
 
-    def save
-      ds = @db["INSERT INTO feeds (title, subtitle, description, feed_url, source_url, icon, last_modified, last_fetched, created)" +
-                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                     @title, @subtitle, @description, @feed_url, @source_url, @icon, @last_modified, @last_fetched, Time.now.getutc]
-      @id = ds.insert
-    end
+    belongs_to :feed
+
+    # def initialize(adapter)
+    #   @db = adapter
+    # end
+
+    # def save
+    #   ds = @db["INSERT INTO feeds (title, subtitle, description, feed_url, source_url, icon, last_modified, last_fetched, created)" +
+    #                  "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    #                  @title, @subtitle, @description, @feed_url, @source_url, @icon, @last_modified, @last_fetched, Time.now.getutc]
+    #   @id = ds.insert
+    # end
 
   end
 end
