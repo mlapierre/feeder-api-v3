@@ -10,6 +10,7 @@ gem 'grape'
 gem 'grape-rails-routes'
 gem 'sqlite3'
 gem 'dm-sqlite-adapter'
+gem 'dm-postgres-adapter'
 gem 'data_mapper'
 #gem 'sequel'
 

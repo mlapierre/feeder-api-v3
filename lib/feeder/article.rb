@@ -3,12 +3,12 @@ module Feeder
     include DataMapper::Resource
 
     property :id, Serial
-    property :title, String
-    property :url, String
-    property :author, String
+    property :title, Text
+    property :url, Text
+    property :author, Text
     property :content, Text
     property :summary, Text
-    property :image, String
+    property :image, Text
     property :created_at, DateTime
     property :last_modified_at, DateTime
     property :published_at, DateTime
