@@ -12,6 +12,7 @@ gem 'sqlite3'
 gem 'dm-sqlite-adapter'
 gem 'dm-postgres-adapter'
 gem 'data_mapper'
+gem 'opml-parser'
 #gem 'sequel'
 
 group :test, :development do

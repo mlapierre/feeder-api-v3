@@ -7,7 +7,7 @@ module Clockwork
   end
 
   every(1.hour, 'save_feeds') do
-    feeder = Feeder::Feeder.new
+    feeder = Feeder::FeederAgent.new
     feeder.fetch_and_save_all_feeds
   end
 end

@@ -5,28 +5,12 @@
      outputters:
      - stdout_debug
      - feeder_logfile
-   - name: "Feeder Mechanized"
-     outputters:
-     - stdout_info
-     - mech_logfile
 
    outputters:
     - type        : DateFileOutputter
       name        : feeder_logfile
       level       : DEBUG
       date_pattern: 'feeder_%Y%m%dT%H'
-      default     : true
-      trunc       : 'false'
-      dirname     : "log"
-      formatter   :
-        type        : PatternFormatter
-        date_pattern: '%y%m%d %H:%M:%S'
-        pattern     : '%d %l: %m'
-
-    - type        : DateFileOutputter
-      name        : mech_logfile
-      level       : DEBUG
-      date_pattern: 'mech_%Y%m%dT%H'
       default     : true
       trunc       : 'false'
       dirname     : "log"

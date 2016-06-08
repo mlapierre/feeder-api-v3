@@ -13,8 +13,6 @@ module Feeder
       #@log.warn "Invalid feed. Request returned: #{feed_src.to_s}" if !feed_src.respond_to? :feed_url
 
       feed_src
-    rescue Feedjira::NoParserAvailable => err
-      raise err
     end
 
     def fetch_and_parse(link)
