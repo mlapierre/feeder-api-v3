@@ -3,6 +3,7 @@ module Feeder
 
     def initialize
       @log = Feeder::log
+      @fetcher = Fetcher.new
     end
 
     def fetch_and_save_all_feeds
@@ -13,15 +14,10 @@ module Feeder
       all_feeds = new_feeds.merge old_feeds.merge Set.new Feedlist.feeds
       @log.info "#{all_feeds.count} unique feeds total"
 
-      fetcher = Fetcher.new
-      #all_feeds = ["http://securityfocus.com/rss/news.xml"]
       all_feeds.each do |url|
-        #feed = Feed.all feed_url: url
-        #next if !feed.first.nil?
-
         @log.info "Fetch feed: #{url}"
         begin
-          feed_source = fetcher.fetch_feed url
+          feed_source = @fetcher.fetch_feed url
         rescue Feedjira::NoParserAvailable
           @log.error "No parser for feed: #{url}"
           next
@@ -29,8 +25,6 @@ module Feeder
           @log.error "Fetch failed for feed: #{url}"
           next
         rescue StandardError => err
-          #require 'byebug'
-          #byebug
           @log.error "#{err.inspect}"
           @log.error err.message
           next
@@ -54,6 +48,33 @@ module Feeder
           @log.error err.message      
         end
       end
+    end
+
+    def fetch_page url
+      page = Page.all url: url
+      return if !page.first.nil?
+
+      source = @fetcher.fetch_page url
+      page = Page.new
+      page.title = source[:title]
+      page.url = url
+      page.content = source[:content]
+      page.created_at = Time.now
+      source[:headers].keys.each do |key|
+        h = Header.new
+        h.header = key
+        h.value = source[:headers][key]
+        page.headers << h
+      end
+      
+      page.raise_on_save_failure = true
+      page
+    rescue StandardError => err
+      @log.error err.message
+      nil
+    rescue RuntimeError => err
+      @log.error err.message
+      nil
     end
 
     def new_feed feed_src, url
@@ -81,14 +102,14 @@ module Feeder
         article.summary = source_entry.summary
         article.image = source_entry.image if source_entry.respond_to? 'image'
         article.last_modified_at = source_entry.updated if source_entry.respond_to? 'updated'
-        #require 'byebug'
-        #byebug
         if source_entry.published.respond_to? 'year' and source_entry.published.year < 0
           article.published_at = Date.parse source_entry.published.strftime "1970-%m-%dT%T%:z"
         else
           article.published_at = source_entry.published
         end
         article.created_at = Time.now
+
+        article.page = fetch_page article.url
 
         parsed_articles.push(article)
       end
@@ -111,6 +132,3 @@ module Feeder
 
   end
 end
-
-# f = Feeder::Feeder.new
-# f.get_feeds_from_opml "./data/subscriptions.xml"

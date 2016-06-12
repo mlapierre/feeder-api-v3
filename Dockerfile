@@ -15,3 +15,4 @@ RUN cp /usr/share/zoneinfo/America/New_York /etc/localtime
 COPY . /usr/app
 
 CMD ["clockwork", "lib/schedule.rb"]
+

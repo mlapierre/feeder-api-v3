@@ -14,6 +14,7 @@ module Feeder
     property :published_at, DateTime
 
     belongs_to :feed
+    has 1, :page
 
     # def initialize(adapter)
     #   @db = adapter

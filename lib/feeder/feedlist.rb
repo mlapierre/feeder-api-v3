@@ -1,7 +1,9 @@
 module Feeder
   class Feedlist
+
     def self.feeds
-       ["https://what.cd/feeds.php?feed=feed_news&user=181772&auth=f6bce4f81869587c94a738b666746458&passkey=550h5cuy46n856e06pfn1f0bxxoqff8h&authkey=e12cfccbf7fb298409f771bdb57b1d45",
+       ["http://feeds.feedburner.com/TesttalksAutomationAwesomenessHelpingYouSucceedWithTestAutomation",
+        "https://what.cd/feeds.php?feed=feed_news&user=181772&auth=f6bce4f81869587c94a738b666746458&passkey=550h5cuy46n856e06pfn1f0bxxoqff8h&authkey=e12cfccbf7fb298409f771bdb57b1d45",
         "http://www.anandtech.com/rss/",
         "http://www.nextplatform.com/feed/",
         "http://feeds.gawker.com/lifehacker/full",
@@ -24,8 +26,6 @@ module Feeder
         "http://onethingwell.org/rss",
         "http://blog.marekrosa.org/feeds/posts/default",
         "http://karpathy.github.io/feed.xml",
-        "http://page2rss.com/rss/00c5ad0fa1478a0a25200d2680692e84",
-        "http://page2rss.com/rss/28d4ca95c9dc203029048c028e7a12c1",
         "http://www.theguardian.com/uk/technology/rss",
         "http://feeds.feedburner.com/blogspot/gJZg",
         "http://www.jair.org/articles.rss",
@@ -64,6 +64,9 @@ module Feeder
 
         #      "http://jmlr.org/jmlr.xml",
         # "http://rss.sciencedirect.com/publication/science/00043702",
+        #"http://page2rss.com/rss/00c5ad0fa1478a0a25200d2680692e84",
+        #"http://page2rss.com/rss/28d4ca95c9dc203029048c028e7a12c1",
+
 
     end
   end

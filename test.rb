@@ -1,5 +1,6 @@
 require_relative 'lib/feeder'
 require 'byebug'
+require 'pp'
 #feedlist = Feeder::FeedList.new
 # fetcher = Feeder::Fetcher.new
 # feed = fetcher.fetch_feed(Feeder::Feedlist.feeds[1])
@@ -11,5 +12,6 @@ require 'byebug'
 # puts "Articles: #{Feeder::Feed.first.articles.length}"
 # puts "Article: #{Feeder::Feed.first.articles.first.title}"
 
-feeder = Feeder::Feeder.new
+feeder = Feeder::FeederAgent.new
 feeder.fetch_and_save_all_feeds
+#feeder.fetch_and_save_page "http://stackoverflow.com/questions/26778911/getting-page-title-with-ruby"
