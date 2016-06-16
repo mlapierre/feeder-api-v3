@@ -10,6 +10,7 @@ require 'open-uri'
 
 require 'byebug'
 
+require_relative 'feeder/url'
 require_relative 'feeder/article'
 require_relative 'feeder/feed'
 require_relative 'feeder/feeder_data'
